@@ -4,7 +4,8 @@ const koaBody = require('koa-body');
 
 const router = new Router();
 router
-    .get('/', MessageController.getMessagesList);
+    .get('/', MessageController.getMessagesList)
+    .get('/list/:page', MessageController.getByPage)
 
 
 module.exports = router.routes();
