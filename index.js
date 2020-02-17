@@ -1,9 +1,8 @@
 const Koa = require('koa');
 const app = new Koa();
 
-app.use(async ctx => {
-    ctx.body = 'Hello World';
-});
+const mainRouter = require('./routes/index');
 
+app.use(mainRouter);
 
 app.listen(3000, () => console.log('Server running on https://localhost:3000'));
