@@ -42,6 +42,23 @@ const MessageController = {
             console.log("please provide correct id");
         }
     },
+    addMessage: async(ctx) => {
+        console.log("add new user")
+        console.log(ctx.request.body)
+        Message.collection.insertOne(
+            {
+                message_text: ctx.request.body.message_text,
+                author_name: ctx.request.body.author_name,
+                author_email: ctx.request.body.author_email
+            }
+        )
+            .then((data)=>{
+                console.log(data);
+            }).catch((err)=>{
+            console.log("err");
+            console.log(err);
+        })
+    }
 
 
 };

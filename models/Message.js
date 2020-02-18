@@ -4,10 +4,6 @@ const ObjectId = Schema.ObjectId;
 
 const MessagesSchema = new Schema(
     {
-/*        message_id: {
-            type: ObjectId,
-            required: true
-        },*/
         message_text: {
             type: String,
             required: true
