@@ -6,6 +6,7 @@ const router = new Router();
 router
     .get('/', MessageController.getMessagesList)
     .get('/list/:page', MessageController.getByPage)
+    .get('/single/:message_id', MessageController.getById);
 
 
 module.exports = router.routes();
