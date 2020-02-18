@@ -4,12 +4,12 @@ const limit = 3;
 
 const MessageController = {
     getMessagesList: async (ctx) => {
-        console.log("all messages")
+        console.log("all messages");
         Message.find({})
-            .then((data)=>{
+            .then((data) => {
                 console.log(data);
             })
-            .catch((err)=>{
+            .catch((err) => {
                 console.log(err);
             })
     },
@@ -18,16 +18,16 @@ const MessageController = {
         Message.find({})
             .skip(ctx.params.page * limit)
             .limit(limit)
-            .then((data)=>{
+            .then((data) => {
                 console.log(data);
             })
-            .catch((err)=>{
+            .catch((err) => {
                 console.log(err);
             })
     },
     getById: async (ctx) => {
         if (mongoose.Types.ObjectId.isValid(ctx.params.message_id)) {
-            Message.findOne({ _id: ctx.params.message_id })
+            Message.findOne({_id: ctx.params.message_id})
                 .then((doc) => {
                     if (doc) {
                         console.log(doc);
@@ -42,9 +42,8 @@ const MessageController = {
             console.log("please provide correct id");
         }
     },
-    addMessage: async(ctx) => {
-        console.log("add new user")
-        console.log(ctx.request.body)
+    addMessage: async (ctx) => {
+        console.log("add new user");
         Message.collection.insertOne(
             {
                 message_text: ctx.request.body.message_text,
@@ -52,10 +51,9 @@ const MessageController = {
                 author_email: ctx.request.body.author_email
             }
         )
-            .then((data)=>{
+            .then((data) => {
                 console.log(data);
-            }).catch((err)=>{
-            console.log("err");
+            }).catch((err) => {
             console.log(err);
         })
     }
