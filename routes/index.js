@@ -1,7 +1,9 @@
 const Router = require('koa-router');
 const messageRouter = require('./messages');
 
-const mainRouter = new Router();
+const mainRouter = new Router({
+    prefix: '/api'
+});
 
 mainRouter.use('/messages', messageRouter);
 
