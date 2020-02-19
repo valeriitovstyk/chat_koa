@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const limit = 3;
 
 const MessageController = {
-    getMessagesList: async (ctx) => {
+/*    getMessagesList: async (ctx) => {
         console.log("all messages");
         Message.find({})
             .then((data) => {
@@ -12,6 +12,15 @@ const MessageController = {
             .catch((err) => {
                 console.log(err);
             })
+    },*/
+
+    getMessagesList: async (ctx) => {
+        try {
+            ctx.body = await Message.find({});
+        } catch (err) {
+            console.log(err);
+            ctx.status = 204;
+        }
     },
     getByPage: async (ctx) => {
         console.log("list by page", ctx.params.page);
