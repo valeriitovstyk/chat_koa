@@ -3,36 +3,22 @@ const mongoose = require('mongoose');
 const limit = 3;
 
 const MessageController = {
-/*    getMessagesList: async (ctx) => {
-        console.log("all messages");
-        Message.find({})
-            .then((data) => {
-                console.log(data);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    },*/
-
     getMessagesList: async (ctx) => {
         try {
             ctx.body = await Message.find({});
         } catch (err) {
-            console.log(err);
             ctx.status = 204;
         }
     },
+
     getByPage: async (ctx) => {
-        console.log("list by page", ctx.params.page);
-        Message.find({})
-            .skip(ctx.params.page * limit)
-            .limit(limit)
-            .then((data) => {
-                console.log(data);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+        try {
+            ctx.body = await Message.find({})
+                .skip(ctx.params.page * limit)
+                .limit(limit)
+        } catch (err) {
+            ctx.status = 204;
+        }
     },
     getById: async (ctx) => {
         if (mongoose.Types.ObjectId.isValid(ctx.params.message_id)) {
@@ -66,8 +52,6 @@ const MessageController = {
             console.log(err);
         })
     }
-
-
 };
 
 module.exports = MessageController;
