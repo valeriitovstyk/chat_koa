@@ -1,13 +1,11 @@
 const mongoose = require('mongoose');
 
-/*
 mongoose.connect('mongodb://localhost/mongoose_basics', {
-*/
-mongoose.connect('mongodb+srv://laverka:test@cluster0-6xxln.mongodb.net/test?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
 /*
-    useUnifiedTopology: true
+mongoose.connect('mongodb+srv://laverka:test@cluster0-6xxln.mongodb.net/test?retryWrites=true&w=majority', {
 */
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 
 const db = mongoose.connection;

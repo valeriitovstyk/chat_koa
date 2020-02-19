@@ -42,7 +42,6 @@ const MessageController = {
                     author_name: ctx.request.body.author_name,
                     author_email: ctx.request.body.author_email
                 }
-
             );
 
         } catch (err) {
