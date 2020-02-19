@@ -7,3 +7,10 @@ node_js:
 branches:
   only:
     - master
+
+
+deploy:
+  provider: heroku
+  app: "chat-koa-api"
+  api_key:
+    secure: "bbd2e690-3ef7-459c-a54e-6002688d3649"
