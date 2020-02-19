@@ -71,4 +71,4 @@ message5.save()
     })*/
 
 
-app.listen(3000, () => console.log('Server running on https://localhost:3000'));
+app.listen(process.env.PORT || 5000, () => console.log('Server running on https://localhost:3000'));
